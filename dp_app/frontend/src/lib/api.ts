@@ -1,7 +1,7 @@
 import { PatientInputPayload, PredictionResponse } from "../types/api";
 
 const API_BASE_URL =
-    import.meta.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export async function fetchDiabetesPrediction(
     payload: PatientInputPayload,

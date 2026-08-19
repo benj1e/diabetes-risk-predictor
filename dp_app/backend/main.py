@@ -10,7 +10,7 @@ app = FastAPI(title="Diabetes Risk API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["diabetes-risk-predictor-seven.vercel.app"],  # lock this down to your frontend's domain once deployed
+    allow_origins=["https://diabetes-risk-predictor-seven.vercel.app"],  # lock this down to your frontend's domain once deployed
     allow_methods=["*"],
     allow_headers=["*"],
 )
