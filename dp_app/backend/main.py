@@ -10,7 +10,7 @@ app = FastAPI(title="Diabetes Risk API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # lock this down to your frontend's domain once deployed
+    allow_origins=["diabetes-risk-predictor-seven.vercel.app"],  # lock this down to your frontend's domain once deployed
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -51,7 +51,7 @@ class LabelCodeEnum(str, Enum):
     def __new__(cls, label: str, code: float):
         obj = str.__new__(cls, label)
         obj._value_ = label
-        obj.code = code
+        obj.code = code # type: ignore
         return obj
 
 
@@ -210,7 +210,7 @@ async def predict(patient: PatientInput):
         if val is None:
             mapped[f] = None
         elif isinstance(val, LabelCodeEnum):
-            mapped[f] = float(val.code)
+            mapped[f] = float(val.code) # type: ignore
         elif isinstance(val, Enum) and hasattr(val, "code"):
             mapped[f] = float(getattr(val, "code"))
         elif isinstance(val, (int, float)):
