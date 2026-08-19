@@ -23,8 +23,8 @@ export async function checkBackendHealth(): Promise<boolean> {
 }
 
 export async function waitForBackendHealth(
-    maxAttempts = 30,
-    delayMs = 1000,
+    maxAttempts = 5,
+    delayMs = 3000,
 ): Promise<boolean> {
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         const isHealthy = await checkBackendHealth();
