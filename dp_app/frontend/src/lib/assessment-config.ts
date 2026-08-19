@@ -1,0 +1,350 @@
+import { AssessmentSection } from '../types/assessment';
+
+export const ASSESSMENT_SECTIONS: AssessmentSection[] = [
+  {
+    id: 'about-you',
+    number: '01',
+    title: 'Demographics & Body Metrics',
+    description: 'Basic biological and body mass metrics derived from standard surveillance categories.',
+    pages: [
+      [
+        {
+          id: '_AGEG5YR',
+          officialQuestion: 'What is your age group?',
+          shortLabel: 'Age Group',
+          description: 'Select the 5-year age range that applies to you.',
+          type: 'choice',
+          options: [
+            { label: '18 to 24 years', value: '18_24' },
+            { label: '25 to 29 years', value: '25_29' },
+            { label: '30 to 34 years', value: '30_34' },
+            { label: '35 to 39 years', value: '35_39' },
+            { label: '40 to 44 years', value: '40_44' },
+            { label: '45 to 49 years', value: '45_49' },
+            { label: '50 to 54 years', value: '50_54' },
+            { label: '55 to 59 years', value: '55_59' },
+            { label: '60 to 64 years', value: '60_64' },
+            { label: '65 to 69 years', value: '65_69' },
+            { label: '70 to 74 years', value: '70_74' },
+            { label: '75 to 79 years', value: '75_79' },
+            { label: '80 years or older', value: '80_plus' },
+          ],
+        },
+        {
+          id: 'SEXVAR',
+          officialQuestion: 'Are you male or female?',
+          shortLabel: 'Sex',
+          description: 'Self-reported sex at birth.',
+          type: 'choice',
+          options: [
+            { label: 'Male', value: 'male' },
+            { label: 'Female', value: 'female' },
+          ],
+        },
+      ],
+      [
+        {
+          id: '_BMI5',
+          officialQuestion: 'What is your Body Mass Index (BMI)?',
+          shortLabel: 'Body Mass Index (BMI)',
+          description: 'Calculated as weight in kilograms divided by height in meters squared (kg/m²). Standard normal range is 18.5 – 24.9.',
+          type: 'number',
+          min: 12.0,
+          max: 75.0,
+          step: 0.1,
+          unit: 'kg/m²',
+          placeholder: 'e.g. 24.5',
+        },
+      ],
+    ],
+  },
+  {
+    id: 'general-health',
+    number: '02',
+    title: 'General Health & Function',
+    description: 'Self-reported physical health, emotional well-being, and mobility limitations.',
+    pages: [
+      [
+        {
+          id: 'GENHLTH',
+          officialQuestion: 'In general, would you say your health is...',
+          shortLabel: 'General Health Status',
+          description: 'Overall subjective assessment of your present physical condition.',
+          type: 'choice',
+          options: [
+            { label: 'Excellent', value: 'excellent', description: 'Optimal vigor and health' },
+            { label: 'Very good', value: 'very_good', description: 'Minor or negligible concerns' },
+            { label: 'Good', value: 'good', description: 'Satisfactory overall state' },
+            { label: 'Fair', value: 'fair', description: 'Frequent mild health issues' },
+            { label: 'Poor', value: 'poor', description: 'Significant ongoing health problems' },
+          ],
+        },
+      ],
+      [
+        {
+          id: 'PHYSHLTH',
+          officialQuestion: 'Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?',
+          shortLabel: 'Unfavorable Physical Health Days',
+          description: 'Enter number of days between 0 and 30.',
+          type: 'number',
+          min: 0,
+          max: 30,
+          step: 1,
+          unit: 'days',
+          placeholder: '0',
+        },
+        {
+          id: 'MENTHLTH',
+          officialQuestion: 'Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?',
+          shortLabel: 'Unfavorable Mental Health Days',
+          description: 'Enter number of days between 0 and 30.',
+          type: 'number',
+          min: 0,
+          max: 30,
+          step: 1,
+          unit: 'days',
+          placeholder: '0',
+        },
+      ],
+      [
+        {
+          id: 'DIFFWALK',
+          officialQuestion: 'Do you have serious difficulty walking or climbing stairs?',
+          shortLabel: 'Difficulty Walking',
+          description: 'Functional mobility restriction.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+        {
+          id: 'DECIDE',
+          officialQuestion: 'Because of a physical, mental, or emotional condition, do you have serious difficulty concentrating, remembering, or making decisions?',
+          shortLabel: 'Cognitive / Decision Difficulty',
+          description: 'Concentration or memory limitations.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    id: 'medical-history',
+    number: '03',
+    title: 'Medical History & Comorbidities',
+    description: 'Diagnosed chronic cardiovascular, respiratory, renal, and joint conditions.',
+    pages: [
+      [
+        {
+          id: 'CVDINFR4',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had a heart attack, also called a myocardial infarction?',
+          shortLabel: 'History of Heart Attack',
+          description: 'Diagnosed myocardial infarction history.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+        {
+          id: 'CVDCRHD4',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had angina or coronary heart disease?',
+          shortLabel: 'Coronary Heart Disease',
+          description: 'Diagnosed coronary artery disease or angina.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+      [
+        {
+          id: 'CVDSTRK3',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had a stroke?',
+          shortLabel: 'History of Stroke',
+          description: 'Diagnosed cerebrovascular accident.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+        {
+          id: 'CHCKDNY2',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had kidney disease?',
+          shortLabel: 'Kidney Disease History',
+          description: 'Excludes kidney stones, bladder infection, or incontinence.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+      [
+        {
+          id: 'ADDEPEV3',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had a depressive disorder (including depression, major depression, dysthymia, or minor depression)?',
+          shortLabel: 'Depressive Disorder',
+          description: 'Diagnosed clinical depression or mood disorder.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+        {
+          id: 'HAVARTH4',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had some form of arthritis, rheumatoid arthritis, gout, lupus, or fibromyalgia?',
+          shortLabel: 'Arthritis / Rheumatic Condition',
+          description: 'Diagnosed joint or connective tissue condition.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+        {
+          id: 'CHCCOPD3',
+          officialQuestion: 'Has a doctor, nurse, or other health professional EVER told you that you had C.O.P.D. (chronic obstructive pulmonary disease), emphysema or chronic bronchitis?',
+          shortLabel: 'COPD / Chronic Respiratory Condition',
+          description: 'Diagnosed chronic airway restriction.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    id: 'lifestyle',
+    number: '04',
+    title: 'Lifestyle & Habits',
+    description: 'Physical activity patterns, tobacco usage, and alcohol consumption habits.',
+    pages: [
+      [
+        {
+          id: '_TOTINDA',
+          officialQuestion: 'During the past 30 days, did you participate in any physical activities or exercises outside of your regular job?',
+          shortLabel: 'Overall Physical Activity',
+          description: 'Includes walking, gardening, running, cycling, or recreational sports.',
+          type: 'choice',
+          options: [
+            { label: 'Yes (Participated)', value: 'yes' },
+            { label: 'No (Did not participate)', value: 'no' },
+          ],
+        },
+        {
+          id: 'EXERANY2',
+          officialQuestion: 'During the past month, did you participate in any specific physical exercises such as running, calisthenics, golf, gardening, or exercise walking?',
+          shortLabel: 'Exercise Habits (Past Month)',
+          description: 'Intentional physical exercise routine.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+      [
+        {
+          id: '_SMOKER3',
+          officialQuestion: 'Four-level smoker status:',
+          shortLabel: 'Smoking Status',
+          description: 'Based on lifetime smoking history (at least 100 cigarettes) and current frequency.',
+          type: 'choice',
+          options: [
+            { label: 'Current smoker — Every day', value: 'current_every_day' },
+            { label: 'Current smoker — Some days', value: 'current_some_days' },
+            { label: 'Former smoker', value: 'former_smoker', description: 'Smoked 100+ cigarettes in lifetime, currently does not smoke' },
+            { label: 'Never smoked', value: 'never_smoked', description: 'Fewer than 100 cigarettes lifetime' },
+          ],
+        },
+        {
+          id: '_RFDRHV9',
+          officialQuestion: 'Heavy alcohol consumption classification:',
+          shortLabel: 'Heavy Drinking Status',
+          description: 'Defined as >14 drinks per week for men, or >7 drinks per week for women.',
+          type: 'choice',
+          options: [
+            { label: 'Not a heavy drinker', value: 'not_heavy_drinker' },
+            { label: 'Heavy drinker', value: 'heavy_drinker' },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    id: 'socioeconomic',
+    number: '05',
+    title: 'Healthcare Access & Background',
+    description: 'Income bracket, education level, routine checkup frequency, and care affordability.',
+    pages: [
+      [
+        {
+          id: 'CHECKUP1',
+          officialQuestion: 'About how long has it been since you last visited a doctor for a routine checkup?',
+          shortLabel: 'Routine Checkup Frequency',
+          description: 'A routine checkup is a general physical exam, not an exam for a specific injury or illness.',
+          type: 'choice',
+          options: [
+            { label: 'Within past year (less than 12 months ago)', value: 'within_past_year' },
+            { label: 'Within past 2 years (1 to < 2 years ago)', value: 'within_past_2_years' },
+            { label: 'Within past 5 years (2 to < 5 years ago)', value: 'within_past_5_years' },
+            { label: '5 or more years ago', value: '5_plus_years_ago' },
+            { label: 'Never', value: 'never' },
+          ],
+        },
+        {
+          id: 'MEDCOST1',
+          officialQuestion: 'Was there a time in the past 12 months when you needed to see a doctor but could not because of cost?',
+          shortLabel: 'Medical Cost Care Barrier',
+          description: 'Inability to seek necessary care due to financial restriction.',
+          type: 'choice',
+          options: [
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ],
+        },
+      ],
+      [
+        {
+          id: '_INCOMG1',
+          officialQuestion: 'What is your annual household income level?',
+          shortLabel: 'Income Level',
+          description: 'Total combined annual household income group.',
+          type: 'choice',
+          options: [
+            { label: 'Less than $15,000', value: 'under_15k' },
+            { label: '$15,000 to < $25,000', value: '15k_to_25k' },
+            { label: '$25,000 to < $35,000', value: '25k_to_35k' },
+            { label: '$35,000 to < $50,000', value: '35k_to_50k' },
+            { label: '$50,000 to < $100,000', value: '50k_to_100k' },
+            { label: '$100,000 to < $200,000', value: '100k_to_200k' },
+            { label: '$200,000 or more', value: '200k_plus' },
+          ],
+        },
+        {
+          id: '_EDUCAG',
+          officialQuestion: 'What is the highest level of education you completed?',
+          shortLabel: 'Education Level',
+          description: 'Highest formal schooling level achieved.',
+          type: 'choice',
+          options: [
+            { label: 'Did not graduate high school', value: 'did_not_graduate_hs' },
+            { label: 'Graduated high school', value: 'graduated_hs' },
+            { label: 'Some college or technical school', value: 'some_college_or_technical' },
+            { label: 'Graduated college or technical school', value: 'graduated_college' },
+          ],
+        },
+      ],
+    ],
+  },
+];
