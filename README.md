@@ -11,7 +11,7 @@ a full-stack screening style ml app that estimates diabetes risk from self-repor
 
 ## Why I built it
 
-Lovely afternoon taking a walk downtown, conversing with my dad he asked me if there was a way for computers to predict a person had diabetes before the fact, and it got me thinking maybe there is a way without the stress of going into labs, combined with my summer research which got me interested in ml models, larger datasets and the rest I got to working and I created my first iteration of the model, wrapped it in an API and organized a lil frontend for it. The model's still pretty juvenile, but its a start.
+lovely afternoon taking a walk downtown, conversing with my dad he asked me if there was a way for computers to predict a person had diabetes before the fact, and it got me thinking maybe there is a way without the stress of going into labs, combined with my summer research which got me interested in ml models, larger datasets and the rest I got to working and I created my first iteration of the model, wrapped it in an API and organized a lil frontend for it. The model's still pretty juvenile, but its a start.
 
 ## Data
 
