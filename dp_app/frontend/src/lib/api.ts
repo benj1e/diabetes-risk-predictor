@@ -1,7 +1,34 @@
 import { PatientInputPayload, PredictionResponse } from "../types/api";
 
-const API_BASE_URL =
-    import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+export async function checkBackendHealth(): Promise<boolean> {
+    try {
+        const response = await fetch(`${API_BASE_URL}/health`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        });
+        return response.ok;
+    } catch {
+        return false;
+    }
+}
+
+export async function waitForBackendHealth(
+    maxAttempts = 30,
+    delayMs = 1000,
+): Promise<boolean> {
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        const isHealthy = await checkBackendHealth();
+        if (isHealthy) {
+            return true;
+        }
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+    return false;
+}
 
 export async function fetchDiabetesPrediction(
     payload: PatientInputPayload,
